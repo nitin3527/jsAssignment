@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Q5 Assignmnet</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+//part1
+	var listOfObj = [
+    { name: 'shukla', age: 53, salary:100000, dob: '1/4/1987' },
+    { name: 'harry', age: 23, salary:10000, dob: '2/7/1998' },
+    { name: 'yash', age: 18, salary:51000, dob: '14/8/2002' },
+    { name: 'rohit', age: 23, salary:40000, dob: '12/4/1998' },
+    { name: 'robin', age: 23, salary:300, dob: '10/6/1998' }
+	];
+
+//part 2
+var filterOnSalary = listOfObj.filter(function (el) {
+  return el.salary > 50000;
+});
+console.log('filterOnSalary',filterOnSalary);
+
+//part 3
+function groupBy(objectArray, property) {
+   return objectArray.reduce((acc, obj) => {
+      const key = obj[property];
+      if (!acc[key]) {
+         acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+   }, {});
+}
+const groupedPeople = groupBy(listOfObj, 'age');
+console.log('groupedPeople',groupedPeople);
+
+
+// part 4
+var ageAndSal = listOfObj.filter(function (el) {
+  return el.salary < 1000 &&
+         el.age > 20;
+});
+for(x in ageAndSal){
+	ageAndSal[x].salary = ageAndSal[x].salary*20;
+}
+console.log('ageAndSal',ageAndSal);
+
+</script>
+</html>
